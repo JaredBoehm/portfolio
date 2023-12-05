@@ -2,7 +2,7 @@ import UID from "~/utils/UID"
 const uid = new UID()
 
 interface Option {
-    name: string
+    display: string
     value: string
 }
 
@@ -13,11 +13,11 @@ interface OptionSelectProps {
 
 export default function OptionSelect({ options, clickFunction }: OptionSelectProps) {
     return (
-        <div className={`flex flex-row flex-wrap gap-2`}>
+        <div className={`flex flex-row flex-wrap gap-4 p-2`}>
             {options.map((option) => {
                 return (
-                    <button key={uid.new()} className={`text-white`} onClick={() => clickFunction(option.value)}>
-                        {option.name}
+                    <button key={uid.new()} className={`dark:text-white text-xs`} onClick={() => clickFunction(option.value)}>
+                        {option.display}
                     </button>
                 )
             })}
